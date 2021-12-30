@@ -5,4 +5,4 @@ from jobs.models import JobOffer
 class JobOfferSerializer(serializers.ModelSerializer):
     class Meta:
         model = JobOffer
-        fields = '__all__'
+        fields = "__all__"

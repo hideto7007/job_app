@@ -16,7 +16,10 @@ import os
 import sqlalchemy.dialects.postgresql.psycopg2
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,7 +31,7 @@ SECRET_KEY = 'django-insecure-vuylvqa!=4f!l2ds6bll*o3n=nbk4$$dit0d^g32^j-027rsdy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'webpack_loader',
     'jobs',
 ]
 
@@ -138,6 +142,13 @@ STATIC_URL = 'static/'
 REST_FRAMEWORK = {
     'PAGE_SIZE': 4,
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination'
+}
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'dist/',
+        'STATS_FILE': BASE_DIR / 'frontend' / 'webpack-stats.json'
+    }
 }
 
 # Default primary key field type
