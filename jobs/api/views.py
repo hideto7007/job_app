@@ -1,6 +1,6 @@
 from rest_framework import generics
 from jobs.models import JobOffer
-from jobs.api.serializers import JobOfferSerializer
+from jobs.api.serializer import JobOfferSerializer
 
 
 class ListView(generics.ListCreateAPIView):
